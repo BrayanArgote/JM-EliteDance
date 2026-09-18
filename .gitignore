@@ -1,0 +1,8 @@
+# python / backend
+backend/venv/
+
+# variables de entorno 
+backend/.env
+
+# editor
+.vscode/
