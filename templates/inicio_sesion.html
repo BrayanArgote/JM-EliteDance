@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio sesión</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio_sesion.css') }}">
+
+</head>
+<body>
+
+    <section> 
+        <nav>
+            <a href="{{ url_for('inicio') }}" class="btn"><ion-icon name="caret-back-outline"></ion-icon></a>
+        </nav>
+            <div class="login-box">
+            <form action="">
+                <h2>Inicio de sesión</h2>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required placeholder=" ">
+                    <label>Correo electronico</label>
+                </div>
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required placeholder=" ">
+                    <label>Contraseña</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Recordarme</label>
+                    <a href="{{ url_for('recuperar_contrasenia') }}">¿Has olvidado la contraseña?</a>
+                </div>
+                <button type="submit">Iniciar sesión</button>
+                <div class="register-link">
+                    <p>¿No tienes una cuenta?<a href="{{ url_for('registro') }}">Registrarse</a></p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
+        
+</body>
+
+</html>

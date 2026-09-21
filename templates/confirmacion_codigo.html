@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva contraseña</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/recuperar_contrasenia.css')}}">
+</head>
+
+<body>
+
+    <div class="overlay">
+        <div class="modal">
+            <a href="{{ url_for('reenviar_codigo') }}" class="modal__close" aria-label="Cerrar">&times;</a>
+
+            <h1 class="modal__title">Nueva Contraseña</h1>
+
+            <p class="modal__text">Crea una nueva contraseña para tu cuenta.</p>
+
+            <form action="" id="formNuevaPass">
+                <div class="password-wrap">
+                    <input type="password" class="input" id="inputPass1" placeholder="Nueva contraseña" autocomplete="new-password">
+                    <span class="password-toggle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                    </span>
+                </div>
+
+                <div class="strength-bar" id="strengthBar">
+                    <span class="strength-seg"></span>
+                    <span class="strength-seg"></span>
+                    <span class="strength-seg"></span>
+                    <span class="strength-seg"></span>
+                    <span class="strength-seg"></span>
+                </div>
+
+                <ul class="requisitos">
+                    <li id="reqLength"><span class="req-dot"></span>8 a 64 caracteres</li>
+                    <li id="reqNumber"><span class="req-dot"></span>Al menos un número</li>
+                    <li id="reqLetter"><span class="req-dot"></span>Al menos una letra</li>
+                    <li id="reqEmail"><span class="req-dot"></span>No usar tu correo electrónico</li>
+                </ul>
+
+                <div class="password-wrap">
+                    <input type="password" class="input" id="inputPass2" placeholder="Confirmar nueva contraseña" autocomplete="new-password">
+                    <span class="password-toggle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+                    </span>
+                </div>
+
+                <p class="password-error" id="passwordError"></p>
+
+                <button type="submit" class="btn btn--primary">Establecer contraseña</button>
+            </form>
+        </div>
+    </div>
+
+    <script> const UrlIniciarSesion = "{{ url_for('inicio_sesion') }}"; </script>
+    <script src="{{ url_for('static', filename='js/confirmacion_codigo.js') }}"></script>
+
+</body>
+
+</html>

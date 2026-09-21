@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recuperar_contrasenia.css') }}">
+</head>
+
+<body>
+
+    <div class="overlay">
+        <div class="modal">
+            <a href="{{ url_for('inicio_sesion') }}" class="modal__close" aria-label="Cerrar">&times;</a>
+
+            <h1 class="modal__title">Recupera Tu Contraseña</h1>
+
+            <p class="modal__text">
+                Te enviaremos un código a tu correo electrónico para que puedas
+                restablecer tu contraseña. Ingresa el correo con el que te registraste.
+            </p>
+
+            <form class="form" action="{{ url_for('reenviar_codigo') }}" method="post">
+                <div class="form__group">
+                    <input type="email" class="input" placeholder="Correo electrónico" required>
+                </div>
+
+                <button type="submit" class="btn btn--primary">Enviar Por Correo Electrónico</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

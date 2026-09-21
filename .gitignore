@@ -1,8 +1,8 @@
 # python / backend
-backend/venv/
+venv/
 
 # variables de entorno 
-backend/.env
+.env
 
 # editor
 .vscode/

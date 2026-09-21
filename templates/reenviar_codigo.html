@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/recuperar_contrasenia.css') }}">
+</head>
+
+<body>
+
+    <div class="overlay">
+        <div class="modal">
+            <a href="{{ url_for('recuperar_contrasenia') }}" class="modal__close" aria-label="Cerrar">&times;</a>
+
+            <h1 class="modal__title">Ingresa el Código de Verificación de 6 Dígitos</h1>
+
+            <p class="modal__text">Enviado a *****@*****.com</p>
+
+            <div class="codigo-box">
+                <div class="codigo-row">
+                    <input type="text" class="codigo-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" class="codigo-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" class="codigo-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" class="codigo-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" class="codigo-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" class="codigo-input" maxlength="1" inputmode="numeric" pattern="[0-9]*">
+                </div>
+
+                <div class="codigo-timer-wrap">
+                    <span class="codigo-timer" id="temporizador">Expira en 4:56</span>
+                </div>
+            </div>
+
+            <a href="{{ url_for('confirmacion_codigo') }}" class="btn btn--primary btn--link">Reenviar código</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/reenviar_codigo.js') }}"></script>
+
+</body>
+
+</html>
