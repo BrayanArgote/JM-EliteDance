@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio sesión</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio_sesion.css') }}">
+{% extends "base.html" %}
 
-</head>
-<body>
+{% block title %}Inicio Sesión{% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio_sesion-registro.css') }}">
+{% endblock %}
+
+{% block nav_links %}
+    <li><a href="{{ url_for('registro') }}">Registrarse</a></li>
+    <li><button class="nav-btn">Comienza a bailar</button></li>
+{% endblock %}
+
+{% block content %}
     <section> 
-        <nav>
-            <a href="{{ url_for('inicio') }}" class="btn"><ion-icon name="caret-back-outline"></ion-icon></a>
-        </nav>
-            <div class="login-box">
+        <div class="formulario">
             <form action="">
                 <h2>Inicio de sesión</h2>
                 <div class="input-box">
@@ -27,22 +27,20 @@
                     <input type="password" required placeholder=" ">
                     <label>Contraseña</label>
                 </div>
-                <div class="remember-forgot">
+                <div class="recordarme-recuperar-contrasenia">
                     <label><input type="checkbox">Recordarme</label>
                     <a href="{{ url_for('recuperar_contrasenia') }}">¿Has olvidado la contraseña?</a>
                 </div>
-                <button type="submit">Iniciar sesión</button>
-                <div class="register-link">
+                <button type="submit" class="btn-iniciar-sesion-registro">Iniciar sesión</button>
+                <div class="enlace-iniciar-sesion-registro">
                     <p>¿No tienes una cuenta?<a href="{{ url_for('registro') }}">Registrarse</a></p>
                 </div>
             </form>
         </div>
     </section>
+{% endblock %}
 
-
+{% block extra_js %}
     <script type="module" src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@8.0.13/dist/ionicons/ionicons.js"></script>
-        
-</body>
-
-</html>
+{% endblock %}

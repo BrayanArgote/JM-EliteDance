@@ -1,171 +1,36 @@
-
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
-    background-color: #000;
-    color: #e7e7e7;
-    min-height: 100vh;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 1.5rem 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff, #a0a0a0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -2px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.logo:hover {
-    transform: scale(1.05);
-    filter: brightness(1.2);
-}
-
-/* =========================
-   LINKS
-========================= */
-
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-    list-style: none;
-}
-
-.nav-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    position: relative;
-    transition: all 0.3s ease;
-    padding: 0.5rem 0;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #efedf2, #c7cccd);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #ffffff;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-/* =========================
-   BOTÓN LOGIN
-========================= */
-
-.sing-in-btn {
-    padding: 0.7rem 1.8rem;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    background-color: transparent;
-    border-radius: 50px;
-    color: #ffffff;
-    cursor: pointer;
-    transition: all 0.4s ease;
-}
-
-.sing-in-btn:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
-}
-
-/* =========================
-   MENÚ HAMBURGUESA
-========================= */
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.menu-toggle span {
-    width: 25px;
-    height: 2px;
-    background: #fff;
-    transition: all 0.3s ease;
-}
-
-#menu-toggle {
-    display: none;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 100vh;
+.portada {
+    min-height: calc(100vh - 5rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8rem 5% 4rem;
+    padding: 3rem 5% 4rem;
     position: relative;
     overflow: hidden;
 }
 
-.hero-content {
+.portada-contenido {
     width: 50%;
     z-index: 2;
 }
 
-.hero-left {
+.portada-texto {
     max-width: 650px;
 }
 
-.hero-left h1 {
+.portada-texto h1 {
     font-size: clamp(2rem, 5vw, 4.5rem);
     line-height: 1.05;
     margin-bottom: 1rem;
 }
 
-.hero-left p {
+.portada-texto p {
     font-size: 1rem;
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 2rem;
 }
 
-/* =========================
-   BOTÓN PRINCIPAL
-========================= */
-
-.cta-button {
+.btn-contacto {
     padding: 0.9rem 1.8rem;
     border: none;
     border-radius: 50px;
@@ -177,21 +42,13 @@ nav {
     transition: all 0.3s ease;
 }
 
-.cta-button:hover {
+.btn-contacto:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
 }
 
-.arrow-right {
-    margin-left: 10px;
-}
-
-/* =========================
-   CUBO SPLINE
-========================= */
-
-.hero-right {
-    width: 50%;
+.portada-cubo {
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -203,22 +60,11 @@ spline-viewer {
     display: block;
 }
 
-/* =====================================================
-   TABLET
-===================================================== */
-
+/* TABLET */
 @media (max-width: 1024px) {
 
-    nav {
-        padding: 1.2rem 4%;
-    }
-
-    .nav-links {
-        gap: 1.5rem;
-    }
-
-    .hero {
-        padding: 7rem 4% 3rem;
+    .portada {
+        padding: 2rem 4% 3rem;
     }
 
     spline-viewer {
@@ -226,109 +72,40 @@ spline-viewer {
         height: 450px;
     }
 
-    .hero-left h1 {
+    .portada-texto h1 {
         font-size: clamp(2rem, 5vw, 3.5rem);
     }
 }
 
-/* =====================================================
-   CELULARES
-===================================================== */
+/* CELULARES */
 
 @media (max-width: 768px) {
 
-    /* NAVBAR */
-
-    nav {
-        padding: 1rem 5%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(10px);
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        z-index: 1002;
-    }
-
-    /* Mostrar hamburguesa */
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    /* Menú desplegable */
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-
-        width: 75%;
-        max-width: 320px;
-        height: 100vh;
-
-        background: rgba(10, 10, 10, 0.98);
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        gap: 2rem;
-
-        transform: translateX(100%);
-        transition: transform 0.4s ease;
-
-        padding: 2rem;
-    }
-
-    #menu-toggle:checked ~ .nav-links {
-        transform: translateX(0);
-    }
-
-    /* Animación hamburguesa */
-
-    #menu-toggle:checked + .menu-toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-    }
-
-    #menu-toggle:checked + .menu-toggle span:nth-child(2) {
-        opacity: 0;
-    }
-
-    #menu-toggle:checked + .menu-toggle span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    /* HERO */
-
-    .hero {
+    .portada {
         min-height: auto;
         flex-direction: column;
-        padding: 7rem 5% 3rem;
+        padding: 2rem 5% 3rem;
         text-align: center;
     }
 
-    .hero-content {
+    .portada-contenido {
         width: 100%;
     }
 
-    .hero-left {
+    .portada-texto {
         max-width: 100%;
     }
 
-    .hero-left h1 {
+    .portada-texto h1 {
         font-size: clamp(2rem, 10vw, 3rem);
     }
 
-    .hero-left p {
+    .portada-texto p {
         font-size: 0.95rem;
         line-height: 1.6;
     }
 
-    /* CUBO */
-
-    .hero-right {
+    .portada-cubo {
         width: 100%;
         margin-top: 2rem;
     }
@@ -340,37 +117,23 @@ spline-viewer {
     }
 }
 
-/* =====================================================
-   CELULARES PEQUEÑOS
-===================================================== */
+/* CELULARES PEQUENIOS */
 
 @media (max-width: 480px) {
 
-    nav {
-        padding: 1rem 4%;
+    .portada {
+        padding: 1.5rem 5% 2rem;
     }
 
-    .logo {
-        font-size: 1.25rem;
-    }
-
-    .nav-links {
-        width: 85%;
-    }
-
-    .hero {
-        padding: 6.5rem 5% 2rem;
-    }
-
-    .hero-left h1 {
+    .portada-texto h1 {
         font-size: 2rem;
     }
 
-    .hero-left p {
+    .portada-texto p {
         font-size: 0.9rem;
     }
 
-    .cta-button {
+    .btn-contacto {
         width: 100%;
         max-width: 250px;
     }

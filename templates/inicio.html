@@ -1,58 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
-    <!--integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />" -->
-    <title>Inicio</title>
-</head>
+{% block title %}Inicio{% endblock %}
 
-<!-- Nav barra de navegación-->
-<body>
-    <nav>
-        <div class="logo">JL Elite Dance</div>
-        <input type="checkbox" id="menu-toggle">
-        <label class="menu-toggle" for="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
-        <ul class="nav-links">
-            <li><a href="#feactures">Sordera</a></li>
-            <li><a href="{{ url_for('inicio_sesion') }}">Inicio de sesión</a></li>
-            <li><button class="sing-in-btn">Comienza a bailar</button></li>
-        </ul>
-    </nav>
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio.css') }}">
+{% endblock %}
 
-    <!-- Parrafo incio-->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-left">
+{% block nav_links %}
+    <li><a href="{{ url_for('inicio_sesion') }}">Iniciar sesión</a></li>
+    <li><a href="{{ url_for('registro') }}">Registrarse</a></li>
+    <li><button class="nav-btn">Comienza a bailar</button></li>
+{% endblock %}
+
+{% block content %}
+    <section class="portada">
+        <div class="portada-contenido">
+            <div class="portada-texto">
                 <h1>JL Elíte Dance </h1>
                 <h1>Por que bailar es vivir</h1>
                 <p>¡Bienvenido a un mundo donde el baile se convierte en emoción! Explora nuestros diferentes géneros de danza y descubre la magia que hay detrás de cada paso, cada ritmo y cada movimiento. Déjate llevar por la pasión, la energía y las sensaciones que solo el baile puede transmitir.
                 Aquí encontrarás un espacio para expresarte, sentir, aprender y conectar con lo que más te inspira. Vive cada ritmo con intensidad, despierta tus emociones y atrévete a bailar sin límites.
                 ¡Disfruta tu visita y comienza esta experiencia llena de arte, alegría y pasión por la danza!</p>
 
-                <button class="cta-button">Contactanos<i class="fa-solid fa-arrow-right arrow-right"
-                        style="color: rgb(0, 0, 0);"></i></button>
+                <button class="btn-contacto">Contactanos</button>
             </div>
         </div>
 
-    <!-- Cubo-->
-        <div class="hero-right">
-
+        <div class="portada-cubo">
             <spline-viewer class="cube" url="https://prod.spline.design/nucdtvTolJjIT4NB/scene.splinecode"></spline-viewer>
         </div>
-        </div>
     </section>
+{% endblock %}
 
+{% block extra_js %}
     <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.97/build/spline-viewer.js"></script>
-
-</body>
-
-</html>
+{% endblock %}

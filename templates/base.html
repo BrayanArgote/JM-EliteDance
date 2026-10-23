@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}JL Elite Dance{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+    <nav>
+
+        <a href="{{ url_for('inicio') }}" class="logo">JL Elite Dance</a>
+
+        <input type="checkbox" id="menu-hamburguesa">
+
+        <label class="menu-hamburguesa" for="menu-hamburguesa">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul class="nav-links">
+            {% block nav_links %}{% endblock %}
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 JL Elite Dance. Todos los derechos reservados.</p>
+    </footer>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>
