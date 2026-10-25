@@ -7,36 +7,38 @@
 {% endblock %}
 
 {% block nav_links %}
-    <li><a href="{{ url_for('inicio_sesion') }}">Iniciar sesión</a></li>
+    <li><a href="{{ url_for('iniciar_sesion.iniciar_sesion') }}">Iniciar sesión</a></li>
     <li><button class="nav-btn">Comienza a bailar</button></li>
 {% endblock %}
 
 {% block content %}
     <section> 
             <div class="formulario">
-            <form action="">
+            <form action="{{ url_for('registro.registro')  }}" method="post">
                 <h2>Registro</h2>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
-                    <input type="input" required placeholder=" ">
+                    <input type="input" name="nombre_completo" required placeholder=" ">
                     <label>Nombre completo </label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" required placeholder=" ">
+                    <input type="email" name="correo" required placeholder=" ">
                     <label>Correo electronico</label>
                 </div>
-                
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" required placeholder=" ">
+                    <input type="password" name="contrasenia" required placeholder=" ">
                     <label>Contraseña</label>
                 </div>
                 <button type="submit" class="btn-iniciar-sesion-registro">Registro</button>
                 <div class="enlace-iniciar-sesion-registro">
-                    <p>¿Ya tienes cuenta? <a href="{{ url_for('inicio_sesion') }}">iniciar sesión</a></p>
+                    <p>¿Ya tienes cuenta? <a href="{{ url_for('iniciar_sesion.iniciar_sesion') }}">iniciar sesión</a></p>
                 </div>
+                    {% if error_correo %}
+                        <p class="error-campo">{{ error_correo }}</p>
+                    {% endif %}
             </form>
         </div>
     </section>

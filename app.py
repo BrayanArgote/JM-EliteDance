@@ -1,18 +1,24 @@
 from flask import Flask, render_template, request
 
+import os 
+from dotenv import load_dotenv
+
+from routes.registro import registro_bp
+from routes.iniciar_sesion import iniciar_sesion_bp
+
+load_dotenv()
+
+
 app = Flask(__name__)
+
+
+app.register_blueprint(registro_bp)
+app.register_blueprint(iniciar_sesion_bp)
+
 
 @app.route('/inicio')
 def inicio():
     return render_template('inicio.html')
-
-@app.route('/inicio-sesion')
-def inicio_sesion():
-    return render_template('inicio_sesion.html')
-
-@app.route('/registro')
-def registro():
-    return render_template('registro.html')
 
 @app.route('/recuperar-contrasenia')
 def recuperar_contrasenia():

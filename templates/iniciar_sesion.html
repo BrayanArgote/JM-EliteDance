@@ -1,30 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}Inicio Sesión{% endblock %}
+{% block title %}Iniciar Sesión{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/inicio_sesion-registro.css') }}">
 {% endblock %}
 
 {% block nav_links %}
-    <li><a href="{{ url_for('registro') }}">Registrarse</a></li>
+    <li><a href="{{ url_for('registro.registro') }}">Registrarse</a></li>
     <li><button class="nav-btn">Comienza a bailar</button></li>
 {% endblock %}
 
 {% block content %}
     <section> 
         <div class="formulario">
-            <form action="">
+            <form action="{{ url_for('iniciar_sesion.iniciar_sesion')  }}" method="post">
                 <h2>Inicio de sesión</h2>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" required placeholder=" ">
+                    <input type="email" name="correo" required placeholder=" ">
                     <label>Correo electronico</label>
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" required placeholder=" ">
+                    <input type="password" name="contrasenia" required placeholder=" ">
                     <label>Contraseña</label>
                 </div>
                 <div class="recordarme-recuperar-contrasenia">
@@ -33,8 +33,11 @@
                 </div>
                 <button type="submit" class="btn-iniciar-sesion-registro">Iniciar sesión</button>
                 <div class="enlace-iniciar-sesion-registro">
-                    <p>¿No tienes una cuenta?<a href="{{ url_for('registro') }}">Registrarse</a></p>
+                    <p>¿No tienes una cuenta?<a href="{{ url_for('registro.registro') }}">Registrarse</a></p>
                 </div>
+                {% if error %}
+                    <p class="error-campo">{{ error }}</p>
+                {% endif %}
             </form>
         </div>
     </section>
